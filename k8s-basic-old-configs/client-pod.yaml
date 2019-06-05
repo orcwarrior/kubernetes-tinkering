@@ -1,0 +1,14 @@
+# Initial showcase of PODs innerworkings, limitations leads to using deployments which
+# will create Pods themself by template
+apiVersion: v1
+kind: Pod
+metadata:
+  name: client-pod
+  labels:
+    component: web
+spec:
+  containers:
+    - name: client
+      image: stephengrider/multi-worker
+      ports:
+        - containerPort: 9999

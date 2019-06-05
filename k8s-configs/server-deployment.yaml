@@ -13,7 +13,25 @@ spec:
         component: server
     spec:
       containers:
-        - name: server
-          image: stephengrider/multi-server
-          ports:
-            - containerPort: 5000
+      - name: server
+        image: stephengrider/multi-server
+        ports:
+        - containerPort: 5000
+        env:
+        - name: REDIS_HOST
+          value: redis-cluster-ip
+        - name: REDIS_PORT
+          value: '6379'
+        - name: PGUSER
+          value: postgres
+        - name: PGHOST
+          value: postgres-cluster-ip
+        - name: PGPORT
+          value: '5432'
+        - name: PGDATABASE
+          value: postgres
+        - name: PGPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: env-secrets
+              key: PGPASSWORD

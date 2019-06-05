@@ -1,17 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
-metadata:
-  name: worker-deployment
+metatada:
+  name: frontend-web-deployment
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      component: worker
+      component: frontend-web
   template:
     metadata:
       labels:
-        component: worker
+        component: frontend-web
     spec:
       containers:
-        - name: worker
-          image: stephengrider/multi-worker
+      - name: frontend-web
+        image: stephengrider/multi-client
+        ports:
+        - containerPort: 3000

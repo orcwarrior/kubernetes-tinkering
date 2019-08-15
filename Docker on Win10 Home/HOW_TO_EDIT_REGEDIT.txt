@@ -1,0 +1,3 @@
+Change in \HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion :
+EditionID: Core --> Professional
+ProductName: Windows 10 Home --> Windows 10 Pro
